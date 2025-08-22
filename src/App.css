@@ -1,0 +1,13 @@
+import React from "react";
+import { Matrix } from "./components/Matrix";
+
+function App() {
+  return (
+    <div>
+      <h1>Species vs. Key Concerns Matrix</h1>
+      <Matrix />
+    </div>
+  );
+}
+
+export default App;

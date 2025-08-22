@@ -1,0 +1,313 @@
+/* Use Myriad Pro globally */
+html, body {
+  font-family: "Myriad Pro", "MyriadPro", Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure pseudo-elements inherit the same font */
+*,
+*::before,
+*::after {
+  font-family: inherit;
+}
+
+.matrix-container {
+  padding: 2rem;
+  overflow-x: auto;
+}
+.matrix-table {
+  border-collapse: separate;
+  border-spacing: 0 16px; /* Adds vertical space between rows */
+  width: 100%;
+}
+.matrix-table th,
+.matrix-table td {
+  border: none;
+  background: transparent;
+  /* Optionally, add a little padding for a playful look */
+  padding: 0.7rem;
+  text-align: center;
+  min-width: 20px;
+  height: 250px;
+  vertical-align: middle;
+}
+
+.matrix-table .flip-card {
+  margin-top: -45px; /* or -20px or whatever looks best for small cards in the grid */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #f9f9f9;
+  color: #222;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+.flip-card-back {
+  background: #e0f7fa;
+  transform: rotateY(180deg);
+}
+.flip-card.knowledge-little .flip-card-front,
+.flip-card.knowledge-little .flip-card-back {
+  background: #ffdddd;
+  border: 2px solid #e53935;
+}
+.flip-card.knowledge-moderate .flip-card-front,
+.flip-card.knowledge-moderate .flip-card-back {
+  background: #fff9c4;
+  border: 2px solid #fbc02d;
+}
+.flip-card.knowledge-well .flip-card-front,
+.flip-card.knowledge-well .flip-card-back {
+  background: #d0f8ce;
+  border: 2px solid #388e3c;
+}
+.flip-card.nrel-dashed .flip-card-front,
+.flip-card.nrel-dashed .flip-card-back {
+  border-style: dashed !important;
+}
+.flip-card-overlay {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.flip-card-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.flip-card {
+  background: transparent;
+  width: 180px;
+  height: 90px;
+  perspective: 600px;
+  cursor: pointer;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  margin-top: 0; 
+  justify-content: center;
+  transition:
+    width 0.9s cubic-bezier(0.4, 0.2, 0.2, 1),
+    height 0.9s cubic-bezier(0.4, 0.2, 0.2, 1),
+    box-shadow 0.9s cubic-bezier(0.4, 0.2, 0.2, 1),
+    transform 0.9s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.flip-card.flip-card-expanded {
+  width: 70vw !important;
+  height: 60vh !important;
+  margin-top: 200px !important;
+  max-width: 700px;
+  max-height: 600px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  cursor: default;
+  position: relative;
+  z-index: 1001;
+  transform: scale(1.1); /* Optional: subtle pop effect */
+}
+
+@media (max-width: 600px) {
+  .flip-card.flip-card-expanded {
+    width: 95vw !important;
+    height: 60vh !important;
+    max-width: 200vw;
+    max-height: 200vh;
+  }
+}
+
+.matrix-legend {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  font-size: 0.98rem;
+  flex-wrap: wrap;
+}
+.legend-box {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 0.4em;
+  vertical-align: middle;
+  border-radius: 4px;
+  border: 2px solid #ccc;
+}
+.legend-little {
+  background: #ffdddd;
+  border-color: #e53935;
+}
+.legend-moderate {
+  background: #fff9c4;
+  border-color: #fbc02d;
+}
+.legend-well {
+  background: #d0f8ce;
+  border-color: #388e3c;
+}
+.legend-dashed {
+  background: #fff;
+  border: 2px dashed #333;
+}
+.flip-card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  z-index: 2;
+}
+.species-row-bg > td {
+  background: #f5f5f7;
+  border-radius: 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-top: 2px solid #bdbdbd;
+  border-bottom: 2px solid #bdbdbd;
+}
+.species-row-bg > td:first-child {
+  border-radius: 18px 0 0 18px;
+  border-left: 2px solid #bdbdbd;
+}
+.species-row-bg > td:last-child {
+  border-radius: 0 18px 18px 0;
+  border-right: 2px solid #bdbdbd;
+}
+
+/* Add spacing between the horizontal boxes */
+.species-row-bg {
+  /* For most browsers, add this to make margin work on table rows: */
+  display: table-row;
+}
+
+.matrix-header-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding-left: 8px;
+  padding-bottom: 0.2rem;
+}
+
+.matrix-header-cell {
+  min-width: 120px;
+  text-align: center;
+}
+
+.matrix-header-row {
+  /* gridTemplateColumns is set inline for dynamic columns */
+  gap: 0;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+  padding-left: 0;
+  padding-bottom: 0.2rem;
+}
+.matrix-header-cell {
+  text-align: center;
+  padding: 0.7rem 0;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.matrix-grid {
+  width: 100%;
+}
+
+.matrix-grid-row {
+  /* gridTemplateColumns is set inline for dynamic columns */
+  margin-bottom: 16px;
+  border-radius: 18px;
+  background: #f5f5f7;
+  border: 2px solid #bdbdbd;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.species-cell {
+  min-height: 150px;
+  height: 120px;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+
+.species-cell {
+  /* Remove border-right */
+  font-weight: 600;
+  font-size: 1.1em;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  background: #f5f5f7;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .matrix-header-row,
+  .matrix-grid-row {
+    grid-template-columns: 120px repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+
+.matrix-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.flip-card-expand {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  border-radius: 0px;
+  font-size: 1.5rem;      /* Larger icon */
+  width: 2rem;        /* Optional: make button area larger */
+  height: 2rem;       /* Optional: make button area larger */
+  cursor: pointer;
+  z-index: 2;
+  padding: 0;
+  display: flex;
+  align-items: right;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s;
+}
+.flip-card-expand:hover {
+  background: #e0e0e0;
+}
