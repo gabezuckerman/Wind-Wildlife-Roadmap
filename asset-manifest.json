@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Wind-Wildlife-Roadmap/static/css/main.dcfa9876.css",
+    "main.js": "/Wind-Wildlife-Roadmap/static/js/main.0ad80d6b.js",
+    "index.html": "/Wind-Wildlife-Roadmap/index.html",
+    "main.dcfa9876.css.map": "/Wind-Wildlife-Roadmap/static/css/main.dcfa9876.css.map",
+    "main.0ad80d6b.js.map": "/Wind-Wildlife-Roadmap/static/js/main.0ad80d6b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dcfa9876.css",
+    "static/js/main.0ad80d6b.js"
+  ]
+}
